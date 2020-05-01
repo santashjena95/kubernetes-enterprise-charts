@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mysql
+  name: mysql
+spec:
+  replicas: {{ .Values.mysql.replicas }}
+  revisionHistoryLimit: {{ .Values.mysql.revisionHistoryLimit }}
+  selector:
+    matchLabels:
+      app: mysql
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mysql
+    spec:
+      restartPolicy: {{ .Values.mysql.restart_policy }}
+      containers:
+      - image: {{ .Values.mysql.image }}
+        name: mysql-container
+        ports:
+        - containerPort: 3306
+          name: mysql-port
+        imagePullPolicy: IfNotPresent
+        
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: mysql-service
+  name: mysql-server-service 
+spec:
+  ports:
+  - name: mysql-port
+    port: 3306
+    protocol: TCP
+    targetPort: 3306
+  selector:
+    app: mysql
+  type: {{ .Values.mysql.service_type }}
+

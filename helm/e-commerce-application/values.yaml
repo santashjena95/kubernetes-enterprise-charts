@@ -1,0 +1,15 @@
+mysql:
+  replicas: 1
+  revisionHistoryLimit: 10
+  image: 
+  restart_policy: Never
+  service_type: ClusterIP
+
+
+frontend:
+  replicas: 1
+  revisionHistoryLimit: 10
+  image: 
+  restart_policy: Never
+  service_type: ClusterIP
+
