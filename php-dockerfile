@@ -3,6 +3,6 @@ LABEL "Application"="Onine Shopping Application"
 LABEL "Type"="LAMP"
 RUN yum update -y
 RUN yum install httpd -y
-RUN yum install php php-mysql  
+RUN yum install php php-mysql -y
 COPY e-commerce /var/www/html/
 ENTRYPOINT ["/usr/sbin/httpd","-D","FOREGROUND"]
