@@ -1,4 +1,4 @@
-# lamp-application-k8-s
+# lamp-application-k8-s ( I used spinnaker to deploy the application )
 This is a LAMP based application hosted on Kubernetes. The Docker files are used to build 2 images 
 1- php-Docker file is used to build the frontend application with all the php files
 2- mysql-dockerfile builds a mysql database from the dump 
