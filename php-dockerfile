@@ -6,3 +6,4 @@ RUN yum install httpd -y
 RUN yum install php php-mysql php-pdo php-gd php-mbstring -y 
 RUN yum install php* php-* -y  
 COPY e-commerce /var/www/html/
+ENTRYPOINT ["/usr/sbin/httpd","-D","FOREGROUND"]
