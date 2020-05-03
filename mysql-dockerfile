@@ -1,4 +1,4 @@
-FROM mysql
+FROM mysql:5
 LABEL "Database_name"="ecommercedb"
 LABEL "ROOT_PASSWORD"="EMPTY_PASSWORD"
 ENV MYSQL_ALLOW_EMPTY_PASSWORD="yes"
