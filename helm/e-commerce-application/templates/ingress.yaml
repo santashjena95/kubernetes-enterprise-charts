@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1	
+kind: Ingress
+metadata:
+  name: e-commerce-ingress 
+spec:
+  rules:
+  {{- if .Values.frontend.ingress_have_hostname }}
+  - host: {{ .Values.frontend.ingress_hostname }}
+  {{- end }}
+  - http:
+      paths:
+      - path: /
+        backend: 
+          serviceName: frontend-service
+          servicePort: http-port

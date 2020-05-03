@@ -12,4 +12,6 @@ frontend:
   image: 
   restart_policy: Never
   service_type: ClusterIP
+  ingress_have_hostname: false
+  ingress_hostname: snowmount.com
 
