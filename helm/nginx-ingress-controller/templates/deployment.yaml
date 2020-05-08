@@ -68,7 +68,7 @@ spec:
             - --election-id=ingress-controller-leader
             - --ingress-class=nginx
             - --configmap=ingress-nginx/ingress-nginx-controller
-            - --default-server-tls-secret=$(POD_NAMESPACE)/{{ .Values.ingress.tls.secret_name }}
+            - --default-ssl-certificate=$(POD_NAMESPACE)/{{ .Values.ingress.tls.secret_name }}
           securityContext:
             capabilities:
               drop:
