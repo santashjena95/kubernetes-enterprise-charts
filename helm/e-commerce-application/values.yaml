@@ -1,16 +1,16 @@
 mysql:
   replicas: 1
   revisionHistoryLimit: 10
-  image: 
-  restart_policy: Never
+  image: greypavan/e-commerce:mysql
+  restart_policy: Always
   service_type: ClusterIP
 
 
 frontend:
   replicas: 1
   revisionHistoryLimit: 10
-  image: 
-  restart_policy: Never
+  image: greypavan/e-commerce:frontend
+  restart_policy: Always
   service_type: ClusterIP
   ingress_have_hostname: false
   ingress_hostname: snowmount.com
